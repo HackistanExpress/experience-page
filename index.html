@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" class="experience ">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jharkhand - Experience Page</title>
+    <link rel="stylesheet" href="styling.css" />
+</head>
+
+<body>
+    <div class="navBar" id="navBar">
+        <img src="sharpen jharkhand logo.png" class="jharkhandLogo" onclick="scrollToTop()">
+        <div class="nav-links">
+            <div class="navItem">Destinations</div>
+            <div class="navItem">Experiences</div>
+            <div class="navItem">Gallery</div>
+            <div class="navItem">Plan Your Trip</div>
+            <div class="menuIcon"></div>
+        </div>
+    </div>
+    <section class="hero">
+    </section>
+    <section class="fixed-bg">
+        <div class="container">
+            <div class="section" data-id="netarhat">
+                <img src="netarhat.jpg" alt="netarhat" />
+                <div class="text">
+                    <h2>Netarhat – The Queen of Chotanagpur</h2>
+                    <p>Where sunrise meets adventure in misty hills.</p>
+                    <button class="btn read-more">Read More</button>
+                </div>
+            </div>
+            <div class="section" data-id="patratu">
+                <img src="patratu.webp" alt="patratu" />
+                <div class="text">
+                    <h2>Patratu Valley – Road to Thrill</h2>
+                    <p>Every curve unveils a new adventure.</p>
+                    <button class="btn read-more">Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section" data-id="betla">
+                <img src="betla.jpg" alt="betla" />
+                <div class="text">
+                    <h2>Betla National Park – Into the Wild</h2>
+                    <p>Step into nature’s thrilling kingdom.</p>
+                    <button class="btn read-more">Read More</button>
+                </div>
+            </div>
+            <div class="section" data-id="parasnath">
+                <img src="parasnath.jpg" alt="parasnath" />
+                <div class="text">
+                    <h2>Parasnath Hills – Trek of Faith and Thrill</h2>
+                    <p>Climb beyond limits, reach spiritual heights</p>
+                    <button class="btn read-more">Read More</button>
+                </div>
+            </div>
+
+            <div class="section" data-id="hundru">
+                <img src="hundru.webp" alt="Hundru Falls" />
+                <div class="text">
+                    <h2>Hundru Falls – Roar of Adventure</h2>
+                    <p>Dive into the power of nature.</p>
+                    <button class="btn read-more">Read More</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="modal" id="modal">
+        <div class="panel">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+                <h3 id="modalTitle" style="margin:0">Title</h3>
+                <button class="close" id="modalClose">✕</button>
+            </div>
+            <p id="modalDesc">Description goes here...</p>
+        </div>
+    </div>
+
+    <script>
+        const DETAILS = {
+            netarhat: { title: 'Netarhat – The Queen of Chotanagpur', desc: 'Netarhat, known as the Queen of Chotanagpur, offers thrilling trekking trails, dense forests, and breathtaking sunrise points. Its cool climate, lush greenery, and panoramic valley views make it a paradise for adventure seekers and nature lovers alike.' },
+
+            patratu: { title: 'Patratu Valley – Road to Thrill',desc:'Patratu Valley is famous for its winding roads, picturesque hills, and serene dam. Adventurers can enjoy scenic drives, motorbike rides, and photography along its breathtaking routes, making it a perfect blend of natural beauty and thrill.'},
+
+            betla: { title: 'Betla National Park – Into the Wild', desc: 'Betla National Park offers thrilling jungle safaris, trekking, and camping amidst rich wildlife including elephants, tigers, and deer. Its dense forests, waterfalls, and forts make it a must-visit destination for those seeking adventure in the heart of nature.' },
+
+            parasnath: { title: 'Parasnath Hills – Trek of Faith and Thrill', desc: 'Parasnath Hills, the highest peak in Jharkhand, offers adventurous treks through steep trails, dense forests, and panoramic views. A revered Jain pilgrimage site, it beautifully blends spirituality with adventure, making the climb a soul-stirring as well as thrilling experience.' },
+
+            hundru: { title: 'Hundru Falls – Roar of Adventure', desc: 'Hundru Falls, one of the highest waterfalls in Jharkhand, is a breathtaking spot for trekking, rock climbing, and nature walks. Surrounded by lush forests and rocky terrains, it’s a thrilling escape where the cascading water adds to the adventurous spirit.' }
+        };
+
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalClose = document.getElementById('modalClose');
+
+        document.querySelectorAll('.read-more').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.closest('.section').dataset.id;
+                const d = DETAILS[id];
+                modalTitle.textContent = d.title;
+                modalDesc.textContent = d.desc;
+                modal.classList.add('open');
+            });
+        });
+
+        modalClose.addEventListener('click', () => modal.classList.remove('open'));
+        modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open') });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('open') });
+    </script>
+</body>
+
+</html>

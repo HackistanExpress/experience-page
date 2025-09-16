@@ -1,0 +1,209 @@
+:root {
+    --bg: #0f1724;
+    --accent: #06b6d4;
+    --muted: #94a3b8;
+    --ff-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--ff-sans);
+    color: #e6eef6;
+    background: linear-gradient(180deg, #041124 0%, #071427 60%);
+    min-height: 100vh;
+}
+
+.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 15px 15px;
+    z-index: 1000;
+}
+
+.jharkhandLogo {
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.jharkhandLogo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.navItem {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.navItem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.navItem:hover {
+    color: #fff;
+}
+
+.navItem:hover::after {
+    width: 100%;
+}
+
+.hero {
+    height: 100vh;
+    background: url("adventure.heroo.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 12px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 28px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.section img {
+    width: 50%;
+    border-radius: 14px;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+}
+
+.section img:hover {
+    transform: scale(1.13);
+}
+.section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.btn {
+    background: linear-gradient(90deg, var(--accent), #7c3aed);
+    border: none;
+    color: #041124;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.parallax {
+    background: url("adventure.png") center/cover no-repeat fixed;
+    padding: 120px 20px;
+}
+
+.parallax .overlay {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 40px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.parallax h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal .panel {
+    width: 100%;
+    max-width: 700px;
+    background: #071427;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.close {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fixed-bg {
+    background: url("adventure.png") center/cover no-repeat fixed;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.fixed-bg .container {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
